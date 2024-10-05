@@ -167,9 +167,51 @@ echo PHP_EOL;
 // getGenderFromName, проверяет, что выбранное из массива ФИО - противоположного пола, если нет, то возвращаемся к шагу 4, если да - возвращаем информацию.
 // Как результат функции возвращается информация совместимости.
 
-$surname = 'ИваНов';
-$name = 'Иван';
-$patronomyc = 'иванович';
+// Для записи аргументов в функцию
+
+// $surname = 'ИваНов';
+// $name = 'Иван';
+// $patronomyc = 'иванович';
+
+// $surname = 'Степанова';
+// $name = 'Наталья';
+// $patronomyc = 'Степановна';
+
+// $surname = 'Пащенко';
+// $name = 'Владимир';
+// $patronomyc = 'Александрович';
+
+// $surname = 'Громов';
+// $name = 'Александр';
+// $patronomyc = 'Иванович';
+
+// $surname = 'Славин';
+// $name = 'Семён';
+// $patronomyc = 'Сергеевич';
+
+// $surname = 'Цой';
+// $name = 'Владимир';
+// $patronomyc = 'Антонович';
+
+// $surname = 'Быстрая';
+// $name = 'Юлия';
+// $patronomyc = 'Сергеевна';
+
+// $surname = 'Шматко';
+// $name = 'Антонина';
+// $patronomyc = 'Сергеевна';
+
+// $surname = 'аль-Хорезми';
+// $name = 'Мухаммад';
+// $patronomyc = 'ибн-Муса';
+
+// $surname = 'Бардо';
+// $name = 'Жаклин';
+// $patronomyc = 'Фёдоровна';
+
+$surname = 'Шварцнегер';
+$name = 'Арнольд';
+$patronomyc = 'Густавович';
 
 function getPerfectPartner($surname, $name, $patronomyc, $persons) {
 
@@ -180,6 +222,10 @@ function getPerfectPartner($surname, $name, $patronomyc, $persons) {
     $fullNameNorm = getFullnameFromParts($surnameNorm, $nameNorm, $patronomycNorm);  // полное имя главного имени
     $shortNameNorm = getShortName($fullNameNorm);                                    // сокращенное имя главного имени
     $genderFullNameNorm = getGenderFromName($fullNameNorm);                          // пол главного имени в виде: -1 0 1
+
+    if ($genderFullNameNorm == 0) {
+        return "Заданы аргументы неопределенного пола";
+    }
 
     $allPersons = count($persons);
 
