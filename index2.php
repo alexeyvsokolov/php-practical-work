@@ -28,6 +28,7 @@ foreach ($example_persons_array as $value) {
     $name = $value['fullname'];
     print_r(getPartsFromFullname($name));
 }
+echo PHP_EOL;
 
 
 // Сокращение ФИО
@@ -144,13 +145,6 @@ function getGenderDescription($persons) {
     Женщины - $percentWomen%
     Неудалось определить - $percenFailedGender%
     HEREDOC;
-
-
-    // echo 'Гендерный состав аудитории:<br>';
-    // echo '---------------------------<br>';
-    // echo "Мужчины - $percentMen% <br>";
-    // echo "Женщины - $percentWomen% <br>";
-    // echo "Неудалось определить - $percenFailedGender%";
 }
 echo getGenderDescription($example_persons_array) . PHP_EOL;
 echo PHP_EOL;
