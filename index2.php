@@ -221,11 +221,9 @@ function getPerfectPartner($surname, $name, $patronomyc, $persons) {
         return "Заданы аргументы неопределенного пола";
     }
 
-    $allPersons = count($persons);
-
     // проверка противоположности пола
     do {
-        $personsNumRand = rand(0, $allPersons - 1);                          // номер случайного имени; отсчет от 0 до 10 = 11; значит от 11-1 будут все значения от 0 до 10
+        $personsNumRand = array_rand($persons);
         $personFullNameRand = $persons[$personsNumRand]['fullname'];         // полное имя случайного имени
         $personFullNameRandGender = getGenderFromName($personFullNameRand);  // пол случайного имени в виде: -1 0 1
     } while (($genderFullNameNorm == $personFullNameRandGender) || ($personFullNameRandGender == 0));
